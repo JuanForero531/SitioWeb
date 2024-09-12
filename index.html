@@ -1,6 +1,26 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Sitio web</title>
+    <script>
+      
+        function updateCounter() {
+            let count = localStorage.getItem('pageCount');
+            if (count === null) {
+                count = 1; 
+            } else {
+                count = parseInt(count) + 1; 
+            }
+            localStorage.setItem('pageCount', count); 
+            document.getElementById('counter').innerText = count; 
+        }
+
+        
+        window.onload = updateCounter;
+    </script>
 </head>
-<h2>Texto</h2>
+<body>
+    <h2>Texto</h2>
+    <p>Visitas a esta página: <span id="counter">0</span></p>
+</body>
 </html>
